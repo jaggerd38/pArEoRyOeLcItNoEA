@@ -5,30 +5,62 @@
 
           <h1>Boleto número {{ p.pk }}</h1>
 
-          <table>
-            <tr>
-                <td>Clase</td>
-                <td>{{ p.clase }}</td>
-            </tr>
-              <tr>
-                 <td>Costo</td>
-                 <td>{{ p.costo }}</td>
-             </tr>
-             <tr>
-                 <td>Numero de Asiento</td>
-                 <td>{{ p.numeroasiento }}</td>
-             </tr>
-             <tr>
-                 <td>Pasajero</td>
-                 <td><a href="{% url 'ver_pasajero' pk=p.pasajero.pk %}">{{ p.pasajero.nombre }}</a></td>
-             </tr>
-             <tr>
-                 <td>Vuelo Numero</td>
-                 <td><a href="{% url 'ver_vuelo' pk=p.vuelo.pk %}">{{ p.vuelo }}</a></td>
-             </tr>
-          </table>
 
-          <a href="{% url 'boleto_editar' pk=p.pk %}">Editar</a>
+
+          <!-- Example DataTables Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Detalles</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                  <tbody>
+                    <tr>
+                    	<td>
+                        <td><b>Clase</b></td>
+                        <td>{{ p.clase }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Costo</b></td>
+                        <td>{{ p.costo }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Numero de Asiento</b></td>
+                        <td>{{ p.numeroasiento }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Pasajero</b></td>
+                        <td><a href="{% url 'ver_pasajero' pk=p.pasajero.pk %}">{{ p.pasajero.nombre }}</a></td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Vuelo Numero</b></td>
+                        <td><a href="{% url 'ver_vuelo' pk=p.vuelo.pk %}">{{ p.vuelo }}</a></td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td></td>
+                        <td><a href="{% url 'boleto_editar' pk=p.pk %}">Editar</a><td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+          </div>
+
 
             <!--
                 eliminar

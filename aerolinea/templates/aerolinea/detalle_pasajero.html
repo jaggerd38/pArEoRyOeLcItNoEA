@@ -4,34 +4,62 @@
         <div class="post">
 
           <h1>Pasajero: {{ p.nombre }}</h1>
-          <table>
-              <tr>
-                 <td>Edad</td>
-                 <td>{{ p.edad }}</td>
-             </tr>
-             <tr>
-                 <td>DPI</td>
-                 <td>{{ p.dpi }}</td>
-             </tr>
-             <tr>
-                 <td>Sexo</td>
-                 <td>{{ p.sexo }}</td>
-             </tr>
-             <tr>
-                 <td>Telefono</td>
-                 <td>{{ p.telefono }}</td>
-             </tr>
-             <tr>
-                 <td>Correo</td>
-                 <td>{{ p.correo }}</td>
-             </tr>
-          </table>
 
 
+          <!-- Example DataTables Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Detalles</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-          <td>
-            <a href="{% url 'pasajero_editar' pk=p.pk %}">Editar</a>
-          </td>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <td><b>Edad</b></td>
+                        <td>{{ p.edad }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>DPI</b></td>
+                        <td>{{ p.dpi }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Sexo</b></td>
+                        <td>{{ p.sexo }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Telefono</b></td>
+                        <td>{{ p.telefono }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Correo</b></td>
+                        <td>{{ p.correo }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td></td>
+                        <td><a href="{% url 'pasajero_editar' pk=p.pk %}">Editar</a><td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+          </div>
+
             <!--
                 eliminar
             -->

@@ -5,24 +5,56 @@
 
           <h1>Avión número {{ p.pk }}</h1>
 
-          <table>
-            <tr>
-                <td>Nombre</td>
-                <td>{{ p.nombre }}</td>
-            </tr>
-              <tr>
-                 <td>Modelo</td>
-                 <td>{{ p.modeloavion }}</td>
-             </tr>
-             <tr>
-                 <td>Capacidad</td>
-                 <td>{{ p.capacidad }}</td>
-             </tr>
-          </table>
 
-          <td>
-            <a href="{% url 'avion_editar' pk=p.pk %}">Editar</a>
-          </td>
+
+
+
+
+          <!-- Example DataTables Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Detalles</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                  <tbody>
+                    <tr>
+                    	<td>
+                        <td><b>Nombre</b></td>
+                        <td>{{ p.nombre }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Modelo</b></td>
+                        <td>{{ p.modeloavion }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Capacidad</b></td>
+                        <td>{{ p.capacidad }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td></td>
+                        <td><a href="{% url 'avion_editar' pk=p.pk %}">Editar</a></td>
+                      <td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+          </div>
+
+
+
+
 
             <!--
                 eliminar

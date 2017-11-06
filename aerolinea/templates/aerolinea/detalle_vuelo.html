@@ -5,40 +5,73 @@
 
           <h1>Vuelo número {{ p.pk }}</h1>
 
-          <table>
-            <tr>
-                <td>Aerolinea</td>
-                <td>{{ p.aerolinea }}</td>
-            </tr>
-              <tr>
-                 <td>Avión</td>
-                 <td><a href="{% url 'ver_avion' pk=p.avion.pk %}">{{ p.avion.nombre }}</a></td>
-             </tr>
-             <tr>
-                 <td>Fecha y hora</td>
-                 <td>{{ p.hora }}</td>
-             </tr>
-             <tr>
-                 <td>Lugar de salida</td>
-                 <td>{{ p.origen }}</td>
-             </tr>
-             <tr>
-                 <td>Lugar de destino</td>
-                 <td>{{ p.destino }}</td>
-             </tr>
-             <tr>
-               <td>Pasajeros</td>
-               <td>
-                 <ol>
-                    {% for pasajero in p.pasajeros.all %}
-                     <a href="{% url 'ver_pasajero' pk=pasajero.pk %}"><li>{{ pasajero.nombre }}</li></a>
-                    {% endfor %}
-                 </ol>
-               </td>
-              </tr>
-          </table>
 
-          <a class="btn btn-default" href="{% url 'vuelo_editar' pk=p.pk %}">Editar</a>
+
+          <!-- Example DataTables Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Detalles</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <td><b>Aerolinea</b></td>
+                        <td>{{ p.aerolinea }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Avión</b></td>
+                        <td><a href="{% url 'ver_avion' pk=p.avion.pk %}">{{ p.avion.nombre }}</a></td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Fecha y hora</b></td>
+                        <td>{{ p.hora }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Lugar de Salida</b></td>
+                        <td>{{ p.origen }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Lugar de destino</b></td>
+                        <td>{{ p.destino }}</td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td><b>Lugar de destino</b></td>
+                        <td>
+                          <ol>
+                           {% for pasajero in p.pasajeros.all %}
+                            <a href="{% url 'ver_pasajero' pk=pasajero.pk %}"><li>{{ pasajero.nombre }}</li></a>
+                           {% endfor %}
+                         </ol>
+                        <td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <td></td>
+                        <td><a class="btn btn-default" href="{% url 'vuelo_editar' pk=p.pk %}">Editar</a><td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+          </div>
 
             <!--
                 eliminar
