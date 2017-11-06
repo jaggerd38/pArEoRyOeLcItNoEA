@@ -28,8 +28,8 @@ def vuelo_nuevo(request):
         formulario = VueloForm(request.POST)
         if formulario.is_valid():
             vuelo = Vuelo.objects.create(aerolinea=formulario.cleaned_data['aerolinea'],
-                    numero = formulario.cleaned_data['numero'], hora = formulario.cleaned_data['hora'],
-                    origen = formulario.cleaned_data['origen'], destino = formulario.cleaned_data['destino'],
+                    hora = formulario.cleaned_data['hora'], origen = formulario.cleaned_data['origen'],
+                    destino = formulario.cleaned_data['destino'],
                     avion = formulario.cleaned_data['avion'])
             for pasajero_id in request.POST.getlist('pasajeros'):
                 viajar = Viajar(pasajero_id=pasajero_id, vuelo_id = vuelo.id)
@@ -46,8 +46,8 @@ def vuelo_editar(request, pk):
         formulario = VueloForm(request.POST, instance=vuelo)
         if formulario.is_valid():
             vuelo = Vuelo.objects.create(aerolinea=formulario.cleaned_data['aerolinea'],
-                    numero = formulario.cleaned_data['numero'], hora = formulario.cleaned_data['hora'],
-                    origen = formulario.cleaned_data['origen'], destino = formulario.cleaned_data['destino'],
+                    hora = formulario.cleaned_data['hora'], origen = formulario.cleaned_data['origen'],
+                     destino = formulario.cleaned_data['destino'],
                     avion = formulario.cleaned_data['avion'])
             for pasajero_id in request.POST.getlist('pasajeros'):
                 viajar = Viajar(pasajero_id=pasajero_id, vuelo_id = vuelo.id)
