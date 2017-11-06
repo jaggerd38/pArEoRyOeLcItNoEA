@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+{% block content %}
+
+<ol>
+    <a href="{% url 'avion_index' %}"><li>Aviones</li></a>
+    <a href="{% url 'pasajero_index' %}"><li>Pasajeros</li></a>
+      <a href="{% url 'boleto_index' %}"><li>Boletos</li></a>
+    <a href="{% url 'vuelo_nuevo' %}"><li>Nuevo Vuelo</li></a>
+</ol>
+
+    <table>
+        <tr>
+        	<th>Numero de Vuelo</th>
+        	<th>Destino</th>
+        	<th>Avión</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% for vuelo in p %}
+        <tr>
+        	<td>
+            {{ vuelo.pk }}
+          </td>
+          <td>
+            {{ vuelo.destino }}
+          </td>
+          <td>
+            <a href="{% url 'ver_avion' pk=vuelo.avion.pk %}">{{ vuelo.avion.nombre }}</a>
+          </td>
+          <td>
+            <a href="{% url 'ver_vuelo' pk=vuelo.pk %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'vuelo_editar' pk=vuelo.pk %}">Editar</a>
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+{% endblock content %}

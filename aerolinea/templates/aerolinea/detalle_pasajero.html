@@ -1,0 +1,40 @@
+{% extends 'aerolinea/base.html' %}
+
+    {% block content %}
+        <div class="post">
+
+          <h1>{{ p.nombre }}</h1>
+          <table>
+              <tr>
+                 <td>Edad</td>
+                 <td>{{ p.edad }}</td>
+             </tr>
+             <tr>
+                 <td>DPI</td>
+                 <td>{{ p.dpi }}</td>
+             </tr>
+             <tr>
+                 <td>Sexo</td>
+                 <td>{{ p.sexo }}</td>
+             </tr>
+             <tr>
+                 <td>Telefono</td>
+                 <td>{{ p.telefono }}</td>
+             </tr>
+             <tr>
+                 <td>Correo</td>
+                 <td>{{ p.correo }}</td>
+             </tr>
+          </table>
+
+
+
+          <td>
+            <a href="{% url 'pasajero_editar' pk=p.pk %}">Editar</a>
+          </td>
+            <!--
+                eliminar
+            -->
+
+        </div>
+    {% endblock %}

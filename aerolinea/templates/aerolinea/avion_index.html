@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+{% block content %}
+<ol>
+    <a href="{% url 'avion_nuevo' %}"><li>Nuevo Avion</li></a>
+</ol>
+
+    <table>
+        <tr>
+        	<th>Numero de Avion</th>
+        	<th>Nombre</th>
+        	<th></th>
+          <th></th>
+        </tr>
+        {% for avion in p %}
+        <tr>
+        	<td>
+            {{ avion.pk }}
+          </td>
+          <td>
+            {{ avion.nombre }}
+          </td>
+          <td>
+            <a href="{% url 'ver_avion' pk=avion.pk %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'avion_editar' pk=avion.pk %}">Editar</a>
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+{% endblock content %}

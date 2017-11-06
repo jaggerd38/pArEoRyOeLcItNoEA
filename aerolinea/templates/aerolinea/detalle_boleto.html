@@ -1,0 +1,38 @@
+{% extends 'aerolinea/base.html' %}
+
+    {% block content %}
+        <div class="post">
+
+          <h1>Boleto número {{ p.pk }}</h1>
+
+          <table>
+            <tr>
+                <td>Clase</td>
+                <td>{{ p.clase }}</td>
+            </tr>
+              <tr>
+                 <td>Costo</td>
+                 <td>{{ p.costo }}</td>
+             </tr>
+             <tr>
+                 <td>Numero de Asiento</td>
+                 <td>{{ p.numeroasiento }}</td>
+             </tr>
+             <tr>
+                 <td>Pasajero</td>
+                 <td><a href="{% url 'ver_pasajero' pk=p.pasajero.pk %}">{{ p.pasajero.nombre }}</a></td>
+             </tr>
+             <tr>
+                 <td>Vuelo Numero</td>
+                 <td><a href="{% url 'ver_vuelo' pk=p.vuelo.pk %}">{{ p.vuelo }}</a></td>
+             </tr>
+          </table>
+
+          <a href="{% url 'boleto_editar' pk=p.pk %}">Editar</a>
+
+            <!--
+                eliminar
+            -->
+
+        </div>
+    {% endblock %}

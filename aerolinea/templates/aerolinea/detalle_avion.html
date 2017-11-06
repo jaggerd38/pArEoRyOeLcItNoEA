@@ -1,0 +1,32 @@
+{% extends 'aerolinea/base.html' %}
+
+    {% block content %}
+        <div class="post">
+
+          <h1>Avión número {{ p.pk }}</h1>
+
+          <table>
+            <tr>
+                <td>Nombre</td>
+                <td>{{ p.nombre }}</td>
+            </tr>
+              <tr>
+                 <td>Modelo</td>
+                 <td>{{ p.modeloavion }}</td>
+             </tr>
+             <tr>
+                 <td>Capacidad</td>
+                 <td>{{ p.capacidad }}</td>
+             </tr>
+          </table>
+
+          <td>
+            <a href="{% url 'avion_editar' pk=p.pk %}">Editar</a>
+          </td>
+
+            <!--
+                eliminar
+            -->
+
+        </div>
+    {% endblock %}

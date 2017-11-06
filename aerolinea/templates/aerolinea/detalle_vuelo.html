@@ -1,0 +1,48 @@
+{% extends 'aerolinea/base.html' %}
+
+    {% block content %}
+        <div class="post">
+
+          <h1>Vuelo número {{ p.numero }}</h1>
+
+          <table>
+            <tr>
+                <td>Aerolinea</td>
+                <td>{{ p.aerolinea }}</td>
+            </tr>
+              <tr>
+                 <td>Avión</td>
+                 <td><a href="{% url 'ver_avion' pk=p.avion.pk %}">{{ p.avion.nombre }}</a></td>
+             </tr>
+             <tr>
+                 <td>Fecha y hora</td>
+                 <td>{{ p.hora }}</td>
+             </tr>
+             <tr>
+                 <td>Lugar de salida</td>
+                 <td>{{ p.origen }}</td>
+             </tr>
+             <tr>
+                 <td>Lugar de destino</td>
+                 <td>{{ p.destino }}</td>
+             </tr>
+             <tr>
+               <td>Pasajeros</td>
+               <td>
+                 <ol>
+                    {% for pasajero in p.pasajeros.all %}
+                     <a href="{% url 'ver_pasajero' pk=pasajero.pk %}"><li>{{ pasajero.nombre }}</li></a>
+                    {% endfor %}
+                 </ol>
+               </td>
+              </tr>
+          </table>
+
+          <a class="btn btn-default" href="{% url 'vuelo_editar' pk=p.pk %}">Editar</a>
+
+            <!--
+                eliminar
+            -->
+
+        </div>
+    {% endblock %}
