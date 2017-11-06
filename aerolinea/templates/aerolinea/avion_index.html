@@ -1,36 +1,57 @@
+{% extends "aerolinea/blank.html" %}
 {% load staticfiles %}
+{% block main %}
 
-{% block content %}
-<ol>
-    <a href="{% url 'avion_nuevo' %}"><li>Nuevo Avion</li></a>
-</ol>
+  <h1>Aviones</h1>
 
-    <table>
-        <tr>
-        	<th>Numero de Avion</th>
-        	<th>Nombre</th>
-        	<th></th>
-          <th></th>
-        </tr>
-        {% for avion in p %}
-        <tr>
-        	<td>
-            {{ avion.pk }}
-          </td>
-          <td>
-            {{ avion.nombre }}
-          </td>
-          <td>
-            <a href="{% url 'ver_avion' pk=avion.pk %}">Ver</a>
-          </td>
-          <td>
-            <a href="{% url 'avion_editar' pk=avion.pk %}">Editar</a>
-          </td>
-        </tr>
-        {% endfor %}
-    </table>
+<!-- Example DataTables Card-->
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> Todos los aviones</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Numero de Avion</th>
+          	<th>Nombre</th>
+            <th>Opcion 1</th>
+            <th>Opcion 2</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Numero de Avion</th>
+          	<th>Nombre</th>
+            <th>Opcion 1</th>
+            <th>Opcion 2</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for avion in p %}
+          <tr>
+          	<td>
+              {{ avion.pk }}
+            </td>
+            <td>
+              {{ avion.nombre }}
+            </td>
+            <td>
+              <a href="{% url 'ver_avion' pk=avion.pk %}">Ver</a>
+            </td>
+            <td>
+              <a href="{% url 'avion_editar' pk=avion.pk %}">Editar</a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+</div>
 
 
-
-
-{% endblock content %}
+{% endblock %}

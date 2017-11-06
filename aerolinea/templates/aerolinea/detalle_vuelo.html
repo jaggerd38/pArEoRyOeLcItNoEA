@@ -1,9 +1,9 @@
-{% extends 'aerolinea/base.html' %}
-
-    {% block content %}
+{% extends "aerolinea/blank.html" %}
+{% load staticfiles %}
+{% block main %}
         <div class="post">
 
-          <h1>Vuelo número {{ p.numero }}</h1>
+          <h1>Vuelo número {{ p.pk }}</h1>
 
           <table>
             <tr>
@@ -45,4 +45,4 @@
             -->
 
         </div>
-    {% endblock %}
+{% endblock %}

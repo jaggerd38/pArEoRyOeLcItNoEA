@@ -2,7 +2,10 @@ from django.conf.urls import include, url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.vuelo_index, name="vuelo_index"),
+
+    url(r'^$', views.main_index, name="main_index"),
+
+    url(r'^vuelo$', views.vuelo_index, name="vuelo_index"),
     url(r'^vuelo/(?P<pk>[0-9]+)/$', views.detalle_vuelo, name='ver_vuelo'),
     url(r'^vuelo/nuevo/$', views.vuelo_nuevo, name='vuelo_nuevo'),
     url(r'^vuelo/(?P<pk>[0-9]+)/editar/$', views.vuelo_editar, name='vuelo_editar'),
@@ -22,4 +25,6 @@ urlpatterns = [
     url(r'^boleto/nuevo/$', views.boleto_nuevo, name='boleto_nuevo'),
     url(r'^boleto/(?P<pk>[0-9]+)/$', views.detalle_boleto, name='ver_boleto'),
     url(r'^boleto/(?P<pk>[0-9]+)/editar/$', views.boleto_editar, name='boleto_editar'),
+
+
 ]

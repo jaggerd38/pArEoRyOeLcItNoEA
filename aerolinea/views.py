@@ -2,7 +2,15 @@ from django.shortcuts import render, render, get_object_or_404, redirect
 from django.contrib import messages
 from .forms import AvionForm, PasajeroForm, VueloForm, BoletoForm
 from aerolinea.models import Avion, Pasajero, Vuelo, Viajar, Boleto
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
+def main_index(request):
+    return render(request, 'aerolinea/main.html')
+
+
+##############################    VUELOS     ###########################################################################################
 
 def vuelo_index(request):
     vuelo = Vuelo.objects.order_by('pk').reverse()

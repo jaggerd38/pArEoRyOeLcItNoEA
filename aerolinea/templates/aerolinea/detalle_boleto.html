@@ -1,6 +1,6 @@
-{% extends 'aerolinea/base.html' %}
-
-    {% block content %}
+{% extends "aerolinea/blank.html" %}
+{% load staticfiles %}
+{% block main %}
         <div class="post">
 
           <h1>Boleto número {{ p.pk }}</h1>
@@ -35,4 +35,4 @@
             -->
 
         </div>
-    {% endblock %}
+{% endblock %}

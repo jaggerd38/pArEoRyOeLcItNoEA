@@ -1,44 +1,70 @@
+{% extends "aerolinea/blank.html" %}
 {% load staticfiles %}
-
-{% block content %}
-<ol>
-    <a href="{% url 'avion_nuevo' %}"><li>Nuevo Avion</li></a>
-</ol>
-
-    <table>
-        <tr>
-        	<th>Numero de Boleto</th>
-        	<th>Clase</th>
-        	<th>Pasajero</th>
-          <th>Vuelo</th>
-          <th></th>
-          <th></th>
-        </tr>
-        {% for boleto in p %}
-        <tr>
-        	<td>
-            {{ boleto.pk }}
-          </td>
-          <td>
-            {{ boleto.clase }}
-          </td>
-          <td>
-            <a href="{% url 'ver_pasajero' pk=boleto.pasajero.pk %}">{{ boleto.pasajero.nombre }}</a>
-          </td>
-          <td>
-            <a href="{% url 'ver_vuelo' pk=boleto.vuelo.pk %}">{{ boleto.vuelo.destino }}</a>
-          </td>
-          <td>
-            <a href="{% url 'ver_boleto' pk=boleto.pk %}">Ver</a>
-          </td>
-          <td>
-            <a href="{% url 'boleto_editar' pk=boleto.pk %}">Editar</a>
-          </td>
-        </tr>
-        {% endfor %}
-    </table>
+{% block main %}
 
 
+<h1>Boletos</h1>
+
+<!-- Example DataTables Card-->
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i>Todos los boletos</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Numero de Boleto</th>
+          	<th>Clase</th>
+          	<th>Pasajero</th>
+            <th>Vuelo</th>
+            <th>Opcion 1</th>
+            <th>Opcion 2</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Numero de Boleto</th>
+          	<th>Clase</th>
+          	<th>Pasajero</th>
+            <th>Vuelo</th>
+            <th>Opcion 1</th>
+            <th>Opcion 2</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for boleto in p %}
+          <tr>
+          	<td>
+              {{ boleto.pk }}
+            </td>
+            <td>
+              {{ boleto.clase }}
+            </td>
+            <td>
+              <a href="{% url 'ver_pasajero' pk=boleto.pasajero.pk %}">{{ boleto.pasajero.nombre }}</a>
+            </td>
+            <td>
+              <a href="{% url 'ver_vuelo' pk=boleto.vuelo.pk %}">{{ boleto.vuelo.destino }}</a>
+            </td>
+            <td>
+              <a href="{% url 'ver_boleto' pk=boleto.pk %}">Ver</a>
+            </td>
+            <td>
+              <a href="{% url 'boleto_editar' pk=boleto.pk %}">Editar</a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+</div>
 
 
-{% endblock content %}
+
+
+{% endblock %}

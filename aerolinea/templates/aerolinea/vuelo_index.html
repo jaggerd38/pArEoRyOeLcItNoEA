@@ -2,12 +2,12 @@
 {% load staticfiles %}
 {% block main %}
 
-
+<h1>Vuelos</h1>
 
 <!-- Example DataTables Card-->
 <div class="card mb-3">
   <div class="card-header">
-    <i class="fa fa-table"></i> Data Table Example</div>
+    <i class="fa fa-table"></i>Todos los vuelos</div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -58,12 +58,6 @@
 </div>
 </div>
 
-<ol>
-    <a href="{% url 'avion_index' %}"><li>Aviones</li></a>
-    <a href="{% url 'pasajero_index' %}"><li>Pasajeros</li></a>
-      <a href="{% url 'boleto_index' %}"><li>Boletos</li></a>
-    <a href="{% url 'vuelo_nuevo' %}"><li>Nuevo Vuelo</li></a>
-</ol>
 
 
 {% endblock %}
