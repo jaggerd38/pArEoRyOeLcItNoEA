@@ -12,14 +12,17 @@ def main_index(request):
 
 ##############################    VUELOS     ###########################################################################################
 
+@login_required
 def vuelo_index(request):
     vuelo = Vuelo.objects.order_by('pk').reverse()
     return render(request, 'aerolinea/vuelo_index.html', {'p':vuelo})
 
+@login_required
 def detalle_vuelo(request, pk):
     vuelo = get_object_or_404(Vuelo, pk=pk)
     return render(request, 'aerolinea/detalle_vuelo.html', {'p': vuelo})
 
+@login_required
 def vuelo_nuevo(request):
     if request.method == "POST":
         formulario = VueloForm(request.POST)
@@ -36,6 +39,7 @@ def vuelo_nuevo(request):
         formulario = VueloForm()
     return render(request, 'aerolinea/vuelo_editar.html', {'formulario': formulario})
 
+@login_required
 def vuelo_editar(request, pk):
     vuelo = get_object_or_404(Vuelo, pk=pk)
     if request.method == "POST":
@@ -53,17 +57,20 @@ def vuelo_editar(request, pk):
         formulario = VueloForm(instance=vuelo)
     return render(request, 'aerolinea/vuelo_editar.html', {'formulario': formulario})
 
-
+@login_required
 ###############################     AVIONES      ##########################################################################################
 
+@login_required
 def avion_index(request):
     avion = Avion.objects.order_by('pk').reverse()
     return render(request, 'aerolinea/avion_index.html', {'p':avion})
 
+@login_required
 def detalle_avion(request, pk):
     avion = get_object_or_404(Avion, pk=pk)
     return render(request, 'aerolinea/detalle_avion.html', {'p': avion})
 
+@login_required
 def avion_nuevo(request):
     if request.method == "POST":
         formulario = AvionForm(request.POST)
@@ -75,6 +82,7 @@ def avion_nuevo(request):
         formulario = AvionForm()
     return render(request, 'aerolinea/avion_editar.html', {'formulario': formulario})
 
+@login_required
 def avion_editar(request, pk):
     avion = get_object_or_404(Avion, pk=pk)
     if request.method == "POST":
@@ -91,14 +99,17 @@ def avion_editar(request, pk):
 
 ##############################    PASAJEROS     ###########################################################################################
 
+@login_required
 def pasajero_index(request):
     pasajero = Pasajero.objects.order_by('pk').reverse()
     return render(request, 'aerolinea/pasajero_index.html', {'p':pasajero})
 
+@login_required
 def detalle_pasajero(request, pk):
     pasajero = get_object_or_404(Pasajero, pk=pk)
     return render(request, 'aerolinea/detalle_pasajero.html', {'p': pasajero})
 
+@login_required
 def pasajero_nuevo(request):
     if request.method == "POST":
         formulario = PasajeroForm(request.POST)
@@ -110,6 +121,7 @@ def pasajero_nuevo(request):
         formulario = PasajeroForm()
     return render(request, 'aerolinea/pasajero_editar.html', {'formulario': formulario})
 
+@login_required
 def pasajero_editar(request, pk):
     pasajero = get_object_or_404(Pasajero, pk=pk)
     if request.method == "POST":
@@ -125,10 +137,12 @@ def pasajero_editar(request, pk):
 
 ##############################    BOLETOS     ###########################################################################################
 
+@login_required
 def boleto_index(request):
     boleto = Boleto.objects.order_by('pk').reverse()
     return render(request, 'aerolinea/boleto_index.html', {'p':boleto})
 
+@login_required
 def detalle_boleto(request, pk):
     boleto = get_object_or_404(Boleto, pk=pk)
     return render(request, 'aerolinea/detalle_boleto.html', {'p': boleto})
@@ -144,6 +158,7 @@ def boleto_nuevo(request):
         formulario = BoletoForm()
     return render(request, 'aerolinea/boleto_editar.html', {'formulario': formulario})
 
+@login_required
 def boleto_editar(request, pk):
     boleto = get_object_or_404(Boleto, pk=pk)
     if request.method == "POST":
